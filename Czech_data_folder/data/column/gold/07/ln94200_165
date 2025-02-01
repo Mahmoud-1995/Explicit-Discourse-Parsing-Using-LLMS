@@ -1,0 +1,7 @@
+Explicit|276..277||||||a|Expansion.Conjunction||||||249..275||||||278..295|||||||||||276..277||t-ln94200-165-p2s2Aw18|conjunction|a|||dnes jsme měli první stání||už jsem rozvedený|||news
+Explicit|411..412||||||a|Expansion.Conjunction||||||386..410||||||413..433|||||||||||411..412||t-ln94200-165-p2s3w8|conjunction|a|||Pardubický soud to uznal||okamžitě nás rozvedl|||news
+Explicit|445..447||||||že|Contingency.Cause.Reason||||||435..443||||||448..468|||||||||||445..447||t-ln94200-165-p2s4w7|reason-result|že|||Jsem rád||mě ještě nevyhostili|||news
+Explicit|549..553||||||však|Comparison.Concession.Arg2-as-denier||||||470..525||||||528..548;554..573|||||||||||549..553||t-ln94200-165-p3s1w5|opposition|však|||Podobných případů je několik hlášeno i z Hradce Králové||Největší tragédie se stala v Pardubicích|||news
+Explicit|1014..1018||||||když|Temporal.Synchronous||||||998..1012||||||1019..1076|||||||||||1014..1018||t-ln94200-165-p4s3w11|synchrony|když|||Vždycky v létě||se v pardubické porodnici malovalo a v Chrudimi měli plno|||news
+Explicit|1054..1055||||||a|Expansion.Conjunction||||||1019..1053||||||1056..1076|||||||||||1054..1055||t-ln94200-165-p4s3w14|conjunction|a|||se v pardubické porodnici malovalo||v Chrudimi měli plno|||news
+Explicit|1082..1089||||||abychom|Contingency.Cause.Reason||||||1078..1080;1120..1176||||||1090..1118|||||||||||1082..1089||t-ln94200-165-p4s4w5|reason-result|abychom|||My jsme vozili naše rodičky jen do Chlumce a Nového Bydžova||předešli nechutným tahanicím|||news

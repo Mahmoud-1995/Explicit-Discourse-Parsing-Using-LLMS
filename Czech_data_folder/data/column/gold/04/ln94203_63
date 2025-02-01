@@ -1,0 +1,4 @@
+Explicit|254..258||||||tedy|Contingency.Cause.Result||||||179..242||||||244..253;259..294|||||||||||254..258||t-ln94203-63-p2s3w1|reason-result|tedy|||Ujistil veřejnost, že USA usilují o mírové a demokratické změny||Nepoužijí námořní blokádu, aby si je vynutily|||news
+Explicit|276..279||||||aby|Contingency.Purpose.Arg2-as-goal||||||244..253;259..274||||||280..294|||||||||||276..279||t-ln94203-63-p2s4w10|purpose|aby|||Nepoužijí námořní blokádu||si je vynutily|||news
+Explicit|336..340||||||nebo|Expansion.Disjunction||||||300..335||||||341..343|||||||||||336..340||t-ln94203-63-p2s5a3|disjunctive alternative|nebo|||se do reforem zapojí i Fidel Castro||ne|||news
+AltLexC|393..400||||||a dodal|Expansion.Conjunction||||||296..392||||||395..455|||||||||||393..400||t-ln94203-63-p2s5w22|conjunction|a dodal|||Zda se do reforem zapojí i Fidel Castro nebo ne, to záleží opravdu jen na něm, uvedl Christopher||dodal, že USA neusilují o odstranění nějaké jednotlivé osoby|||news

@@ -1,0 +1,62 @@
+Jak statistický úřad počítá míru inflace
+
+Při analýze růstu cen je třeba přesně popsat hodnocené statistické údaje -
+Spotřební koš nyní obsahuje 775 položek
+Kamil Kudlák, vrchní ředitel sekce ekonomických statistik, Český statistický úřad
+Inflace je definována jako růst cenové hladiny.
+Opačný proces (pokles cenové hladiny) je deflace.
+Inflace nastává, roste-li celková cenová hladina.
+K měření inflace jsou používány cenové indexy, zejména Index spotřebitelských cen, který měří změnu celkové cenové hladiny spotřebního zboží a služeb.
+Pro názornost lze říci, že míra inflace je mírou znehodnocení peněz.
+
+Výběr dat pro měření inflace
+Hlavním úkolem cenové statistiky je poskytovat indexy, které měří změny průměrné hladiny cen za skupiny, více skupin a za úhrn cen.
+To je možno splnit na základě vybraných reprezentantů.
+Statisíce druhů výrobků a služeb si vynucují uplatnění výběrového způsobu zjišťování, to je takového postupu, kdy na místo všech výrobků spadajících do určité relativně homogenní skupiny výrobků (např trvanlivé pečivo) se stává předmětem zjišťování jejich cenové úrovně jeden nebo maximálně několik zcela konkrétních výrobků (např. tatranka jako reprezentant sladkého trvanlivého pečiva a solené tyčinky jako reprezentant nesladkého trvanlivého pečiva).
+Vybraným reprezentantům se potom připisuje váha odpovídající prodeji (spotřebě) zboží celé jimi reprezentované skupiny (např. trvanlivého pečiva) nebo podskupiny (např. trvanlivého pečiva sladkého a trvanlivého pečiva nesladkého).
+Každému reprezentantu přiřazený podíl na úhrnné spotřebě zboží a služeb v procentech respektive v promilích a s několika desetinnými místy vyjadřuje tak zvanou váhu každé skupiny nebo podskupiny na celkové spotřebě (peněžních vydáních) domácností.
+
+Souhrn všech reprezentantů představuje tzv. spotřební koš, který reprezentuje výdaje všech domácností.
+
+Individuální výdaje (spotřeba) jednoho spotřebitele, eventuálně jednotlivé domácnosti, za určité zboží nemusí být vždy totožná s vybranými reprezentanty a jejich vahami právě proto, že jsou stanoveny na základě celkové roční spotřeby (výdajů) obyvatelstva.
+V tom smyslu jsou často neoprávněné kritiky spotřebitelů na spotřební koš.
+
+Zpravodajská síť
+Vedle výběru druhů zboží či služeb je nutno také rozhodnout o výběru míst, na kterých budou konkrétní ceny zjišťovány.
+Regulované a centrálně stanovené ceny se zjišťují na příslušných orgánech (tisk, energie, pojištění aj.).
+Zhruba se měsíčně pro výpočty úhrnného indexu spotřebitelských cen vychází z cca 100000 konkrétních cen 775 cenových reprezentantů v 46 okresech.
+
+Základem cenového indexu tj. počátečním obdobím pro současné měření indexu spotřebitelských cen jsou ceny cenových reprezentantů z ledna 1989.
+
+Zásada porovnatelnosti výrobků
+Aby bylo možno sledovat pouze skutečný - reálný cenový vývoj bez vlivů změn jakosti, je nutno dodržet při zjišťování cen zásadu porovnatelnosti výrobků, která je v podstatě vymezena popisem reprezentantů včetně měrné jednotky, hmotnosti, původu výrobku, složení, obalu a především popisem technických a technologických parametrů.
+Dodržet zásadu porovnatelnosti je složité především pro neustálou obměnu sortimentu zboží a služeb.
+Proto se aktualizuje spotřební koš, to znamená, že se nahrazuje reprezentant, který se už nevyskytuje nebo se stal nevýznamným, jiným výrobkem co nejvíce shodným s původním.
+Při posuzování porovnatelnosti výrobku nelze používat příliš přísná kriteria.
+Rozhodujícím kriteriem porovnatelnosti je zda došlo, nebo nedošlo ke změně užitné hodnoty nového výrobku.
+Jde-li o nevýznamnou změnu užitné hodnoty (kvality) jako je barva, vzor, obal, hmotnost apod. lze považovat výrobek za porovnatelný.
+Naopak dojde-li k významné změně jakosti, která zvýší nebo sníží užitnou hodnotu výrobku , provádí se eliminace rozdílu vyplývající z jiné jakosti často za účasti externích odborných pracovníků (techniků a technologů).
+
+Závažným aktuálním problémem je z tohoto hlediska zařazování do spotřebního koše především těch služeb, které se z neplacených (netržních) stávají placenými (tržními), jako je tomu ve zdravotnictví, školství apod.
+
+Aktualizace spotřebního koše je z hlediska objektivní nutnosti obměny reprezentantů a potřebné stálosti váhové struktury výdajů (spotřeby) závažným stále diskutovaným problémem u nás navíc komplikovaným procesem transformace ekonomiky.
+
+Zjištění vah a vypracování podrobného vahového schématu je náročnou statistickou operací, která se uskutečňuje periodicky za 5-10 let a je součástí tzv. komplexní revize cenových indexů, která dále zahrnuje změnu základního cenového období, revizi počtu a výběru reprezentantů (spotřebního koše zboží a služeb), revizi zpravodajské sítě, revizi programového a technického zpracování a konečně revizi metodických a organizačních pokynů pro sběr a zpracování prvotních dat.
+
+V rámci revize indexu spotřebitelských cen se nyní řeší sjednocení vahového systému.
+Z doposud používaných dvou zdrojů. tj. maloobchodního obratu pro index spotřebitelských cen a výdajů domácností pro index životních nákladů bude vahový systém vycházet pouze z výdajů domácností a jejich struktury výběrově zjišťované statistikou rodinných účtů.
+Tato změna navíc odpovídá mezinárodnímu standardu.
+
+Typy ukazatelů měřících inflaci
+Při analýze inflace je třeba přesně popsat hodnocené statistické údaje (použitý statistický vzorec, spotřební koš, časové období, časový základ), se kterými pracujeme.
+
+Nejběžnějším užívaným ukazatelem je průměrná roční míra inflace, která charakterizuje změnu průměrné cenové hladiny za průměr posledních 12 měsíců proti průměru 12 předchozích měsíců.
+Tyto tzv. klouzavé průměry odrážejí tendenci ročního vývoje oproštěného od sezonních vlivů i od krajních hodnot začátku nebo konce příslušného roku.
+
+Ukazatel meziroční míry inflace vypovídá, jaké úrovně dosáhla cenová hladina ve sledovaném měsíci daného roku oproti stejnému měsíci předchozího roku.
+
+Dále je uváděna inflace jako porovnání příslušného měsíce sledovaného roku ke konci roku předcházejícího (prosinec předchozího roku = 100.0).
+Tento index sleduje narůstání vývoje cen v průběhu sledovaného roku a v prosinci sledovaného roku je shodný s meziroční inflací za prosinec minulého roku.
+
+Krátkodobou inflací je ukazatel měsíční inflace, který charakterizuje změnu cenové hladiny sledovaného měsíce oproti předchozímu měsíci.
+Zachycuje měsíční tempo změny cen.

@@ -1,0 +1,334 @@
+#!btred -TN --context PDiT_30 -e replace_discourse()
+#-*- cperl -*-
+# Author: Jiri Mirovsky
+
+#ifndef NTRED
+#include <tred.mac>
+#endif
+
+=item replace_discourse
+
+It takes a list of extracted discourse and annotates the discourse in the files; it removes any previously present discourse annotation
+Each line in the list consists of members divided by tabulators:
+
+node_id
+info (SPECIAL, COMMENT, ARROW, GROUP)
+value (a value for SPECIAL, COMMENT, N/A for ARROW, list of group ids separated by '__' for GROUP)
+target_id
+type (discourse or list)
+discourse_type
+sense
+sense_manual
+is_negated (NEGATED, POSITIVE, N/A)
+is_secondary (PRIMARY, SECONDARY, N/A)
+start_range
+target_range
+start_group_id
+target_group_id
+t_connectors (sorted, the individual ids are separated by '__')
+a_connectors (sorted, the individual ids are separated by '__')
+t_connectors_ext (sorted, the individual ids are separated by '__')
+a_connectors_ext (sorted, the individual ids are separated by '__')
+comment
+src
+node_dfo (depth-first-order of the node in the tree)
+target_dfo (depth-first-order of the target node in the tree)
+
+The scripts gives a warning if dept-first order of a node differs from the extracted one.
+
+=cut
+
+package PDiT_30;
+
+use strict;
+use warnings;
+
+#encoding utf8
+use utf8;
+binmode STDIN, ':utf8';
+binmode STDOUT, ':utf8';
+binmode STDERR, ':utf8';
+
+my $N_A = 'N/A';
+my $value_separator = '__';
+
+my ($file_with_discourse) = @ARGV;
+
+my %discourse;
+
+my $file_count;
+my $total_count = 0;
+
+readFile($file_with_discourse,\%discourse);
+
+sub file_opened_hook {
+  $file_count = 0;
+  my $document = CurrentFile();
+  $document->changeSchemaURL('tdata_pdit30_schema.xml')
+} # file_opened_hook
+
+sub file_close_hook {
+  my $file_name = FileName();
+  print STDERR "Number of discourse info pieces created in $file_name: $file_count\n";
+} # file_close_hook
+
+sub exit_hook {
+  print STDERR "Total number of created discourse info pieces: $total_count\n";
+  print STDERR "\n";
+} # exit_hook
+
+# read a file
+sub readFile {
+  my ($file, $ref_discourse) = @_;
+  open(FILE,'<:utf8',$file) or die "Cannot open the input file " . $file . ". Exiting.\n";
+  my $count = 0;
+  while (my $radek = <FILE>) {
+    chomp ($radek);
+    # print STDERR "a line: $radek\n";
+    my $node_id;
+    my $rest;
+    if ($radek =~ /^(\S+)\s/) {
+      $node_id = $1;
+    }
+    else {
+      print STDERR "The line should consist of elements divided by a tabulator:\n$radek\n";
+      next;
+    }
+    $count ++;
+    my $prev_value = $$ref_discourse{$node_id};
+    if (defined($prev_value) and length($prev_value)) {
+      $prev_value .= '@';
+    }
+    else {
+      $prev_value = '';
+    }
+    my $new_value = $prev_value . $radek;
+    $$ref_discourse{$node_id} = $new_value;
+  }
+  print STDERR "$count lines have been read from $file\n";
+  close(FILE);
+} # readFile
+
+
+sub replace_discourse {
+
+  my $node_id = $this->attr('id');
+  if (defined($node_id) and length($node_id)) {
+    # print STDERR "$node_id\n";
+    if (ListV($this->{'discourse'})) {
+      $this->{'discourse'}=List();
+      print STDERR "Removed discourse arrows from node $node_id\n";
+      ChangingFile();
+    }
+    if ($this->attr('discourse_comment')) {
+      $this->set_attr('discourse_comment',undef);
+      print STDERR "Removed discourse_comment from node $node_id\n";
+      ChangingFile();
+    }
+    if ($this->attr('discourse_special')) {
+      $this->set_attr('discourse_special',undef);
+      print STDERR "Removed discourse_special from node $node_id\n";
+      ChangingFile();
+    }
+    if (ListV($this->{'discourse_groups'})) {
+      $this->{'discourse_groups'}=List();
+      print STDERR "Removed discourse group information from node $node_id\n";
+      ChangingFile();
+    }
+
+    my $annots_string = $discourse{"$node_id"};
+    if (defined($annots_string) and length($annots_string)) {
+      ChangingFile();
+      my @annots = split(/@/, $annots_string);
+      foreach my $discourse (@annots) {
+        print STDERR "this->id = $node_id, annotation = $discourse\n";
+        create_discourse($this, $discourse);
+      }
+    }
+  }
+} # replace_discourse
+
+
+sub create_discourse {
+  my ($node, $discourse) = @_;
+
+  my ($node_id, $info, $value, $target_id, $type, $discourse_type, $sense, $sense_manual, $is_negated, $is_secondary, $start_range, $target_range, $start_group_id, $target_group_id, $t_connectors, $a_connectors, $t_connectors_ext, $a_connectors_ext, $comment, $source, $node_dfo, $target_dfo) = split(/\t/, $discourse);
+
+  my $t_lemma = $node->attr('t_lemma');
+
+  if ($info eq 'SPECIAL') {
+    $node->set_attr('discourse_special', $value);
+    print STDERR "Attribute 'discourse_special' has been set at '$node_id' (t_lemma = '$t_lemma') to '$value' .\n";
+    check_consistency($node, $target_id, $node_dfo, $target_dfo);
+  }
+  elsif ($info eq 'COMMENT') {
+    my $discourse_comment = $value;
+    $discourse_comment =~ s/__/\n/g;
+    $discourse_comment =~ s/--/ /g;
+    $node->set_attr('discourse_comment', $discourse_comment);
+    print STDERR "Attribute 'discourse_comment' has been set at '$node_id' (t_lemma = '$t_lemma') to '$discourse_comment'.\n";
+  }
+  elsif ($info eq 'GROUP') {
+    $node->set_attr('discourse_groups', List());
+    my @group_ids = split($value_separator, $value);
+    foreach my $group_id (@group_ids) {
+      AddToList($node,'discourse_groups', {'id' => $group_id});
+    }
+    check_consistency($node, $target_id, $node_dfo, $target_dfo);
+  }
+  else { # a discourse arrow
+    print STDERR "Going to create a '" . $type . "' arrow $node_id -> $target_id with the discourse type: '$discourse_type', source: '$source', and comment: '$comment'\n";
+
+    check_consistency($node, $target_id, $node_dfo, $target_dfo);
+
+    if ($type eq 'no_type') {
+      print STDERR "Warning: no type at an arrow at node $node_id\n";
+      $type = undef;
+    }
+    if ($discourse_type eq 'no_discourse_type') {
+      if ($type and $type eq 'discourse') {
+        print STDERR "Warning: no discourse type at a discourse arrow at node $node_id\n";
+      }
+      $discourse_type = undef;
+    }
+    if ($sense eq 'no_sense') {
+      if ($type and $type eq 'discourse') {
+        print STDERR "Warning: no sense at a discourse arrow at node $node_id\n";
+      }
+      $sense = undef;
+    }
+    if ($sense_manual eq 'no_sense_manual') {
+      $sense_manual = undef;
+    }
+    if ($source eq 'no_source') {
+      print STDERR "Warning: no source at an arrow at node $node_id\n";
+      $source = undef;
+    }
+    else {
+      $source =~ s/--/ /g;
+    }
+    if ($comment eq 'no_comment') {
+      $comment = undef;
+    }
+    else {
+      $comment =~ s/__/\n/g;
+      $comment =~ s/--/ /g;     
+    }
+    if ($is_negated eq $N_A or $is_negated eq 'POSITIVE') {
+      $is_negated = undef;
+    }
+    else {
+      $is_negated = '1';
+    }
+    if ($is_secondary eq $N_A or $is_secondary eq 'PRIMARY') {
+      $is_secondary = undef;
+    }
+    else {
+      $is_secondary = '1';
+    }
+        
+    if ($start_group_id eq 'no_start_group_id') {
+      if ($start_range and $start_range eq 'group') {
+        print STDERR "Warning: no start_group_id at an arrow with start_range=group at node $node_id\n";
+      }
+      $start_group_id = undef;
+    }
+    if ($target_group_id eq 'no_target_group_id') {
+      if ($target_range and $target_range eq 'group') {
+        print STDERR "Warning: no target_group_id at an arrow with target_range=group at node $node_id\n";
+      }
+      $target_group_id = undef;
+    }
+    if ($start_range eq 'no_start_range') {
+      print STDERR "Warning: no start range at an arrow at node $node_id\n";
+      $start_range = undef;
+    }
+    if ($target_range eq 'no_target_range') {
+      if ($type and $type ne 'list') {
+        print STDERR "Warning: no target range at a discorse arrow at node $node_id\n";
+      }
+      $target_range = undef;
+    }
+    if ($target_id =~ /^no_target_id/) {
+      if (defined($type) and $type ne 'list') {
+        print STDERR "Warning: no target_id at a discourse arrow at node $node_id\n";
+      }
+      $target_id = undef;
+    }
+
+    my @a_connectors = undef;
+    my @t_connectors = undef;
+
+    if ($a_connectors eq 'no_a_connectors') {
+      $a_connectors = undef;
+    }
+    else {
+      @a_connectors = split($value_separator, $a_connectors);
+    }
+    
+    if ($t_connectors eq 'no_t_connectors') {
+      $t_connectors = undef;
+    }
+    else {
+      @t_connectors = split($value_separator, $t_connectors);
+    }
+
+    my @a_connectors_ext = undef;
+    my @t_connectors_ext = undef;
+
+    if ($a_connectors_ext eq 'no_a_connectors_ext') {
+      $a_connectors_ext = undef;
+    }
+    else {
+      @a_connectors_ext = split($value_separator, $a_connectors_ext);
+    }
+    
+    if ($t_connectors_ext eq 'no_t_connectors_ext') {
+      $t_connectors_ext = undef;
+    }
+    else {
+      @t_connectors_ext = split($value_separator, $t_connectors_ext);
+    }
+
+    AddToList($node, 'discourse', {'target_node.rf' => $target_id,
+                                         'type' => $type,
+                                         'discourse_type' => $discourse_type,
+                                         'sense_PDTB3' => $sense,
+                                         'sense_PDTB3_manual' => $sense_manual,
+                                         'start_range' => $start_range,
+                                         'target_range' => $target_range,
+                                         'start_group_id' => $start_group_id,
+                                         'target_group_id' => $target_group_id,
+                                         'is_secondary' => $is_secondary,
+                                         'is_negated' => $is_negated,
+                                         'a-connectors.rf' => defined($a_connectors) ? List(@a_connectors) : undef,
+                                         't-connectors.rf' => defined($t_connectors) ? List(@t_connectors) : undef,
+                                         'a-connectors_ext.rf' => defined($a_connectors_ext) ? List(@a_connectors_ext) : undef,
+                                         't-connectors_ext.rf' => defined($t_connectors_ext) ? List(@t_connectors_ext) : undef,
+                                         'src' => $source,
+                                         'comment' => $comment});
+                                         
+    print STDERR "The '" . $type . "' discourse arrow was created at " . $node->{'id'} . " (t_lemma = '$t_lemma')\n";
+  }
+  ChangingFile(1);
+  $total_count++;
+  $file_count++;
+} # create_discourse
+
+sub check_consistency {
+  my ($node, $target_id, $node_dfo, $target_dfo) = @_;
+  my $node_id = $node->attr('id');
+  my $real_node_dfo = GetNodeIndex($node);
+  if ($node_dfo ne $real_node_dfo) {
+    print STDERR "Warning: node_dfo_mismatch: $node_id->$target_id: $node_dfo x $real_node_dfo\n";
+  }
+
+  if ($target_id !~ /^no_target_id/ and $target_id ne $N_A) {
+    my $target_node = PML::GetNodeByID("$target_id");
+
+    my $real_target_dfo = GetNodeIndex($target_node);
+    if ($target_dfo ne $real_target_dfo) {
+      print STDERR "Warning: target_dfo_mismatch: $node_id->$target_id: $target_dfo x $real_target_dfo\n";
+    }
+  }
+}

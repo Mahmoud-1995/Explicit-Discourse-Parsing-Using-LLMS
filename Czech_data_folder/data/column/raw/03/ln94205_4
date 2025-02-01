@@ -1,0 +1,23 @@
+Slovníček
+
+DPI je zkratka pro dot per inch (bod na palec) a v případě tiskárny udává, kolik bodů vodorovně a svisle je mechanika tiskárny schopna na papír vytisknout.
+Tištěné písmo, ač vypadá jednolitě, je složeno z množství drobných teček a kvalitní tiskárna se pozná podle toho, jak malé tečky vytváří a jak přesně je schopna požadovaný obrys vytečkovat tak, aby hrany písma či částí obrázku byly nezubaté - hladké.
+Rozlišení 720 x 720 dpi představuje skoro 800 teček na čtvereční milimetr.
+
+Piezoelektrický jev je znám již přes 100 let, u jeho objevu se mimochodem vyskytuje jméno Curie.
+Při stlačení křemíkové destičky se na jejích plochách objeví elektrický náboj, a naopak působením elektrického náboje se destička deformuje.
+Ve dvacátých letech se objevily první praktické aplikace a objevily se další materiály, které vykazovaly piezoelektrický efekt.
+Výhodou je velice přesné řízení deformace destičky v závislosti na velikosti přivedeného náboje - proudu.
+Každá tryska vyplivne kapičku barviva právě na základě deformace miniaturní destičky.
+Právě miniaturizace pohonu trysky umožnila dosáhnout onoho neuvěřitelného rozlišení.
+Rychlost vytvoření tiskového bodu je navíc 25x rychlejší než u inkoustových tiskáren.
+
+PCI neboli Peripheral Component Interconnect je nový standard pro sběrnice.
+Sběrnice představuje cestu, kudy v počítači putují data.
+Je zřejmé, že propustnost těchto cest musí být sladěna s možnostmi ostatních částí počítače (procesor, paměť, disky, displej).
+Výkonný procesor a rychlý disk jsou při použití nízkokapacitní sběrnice nevyužity, neboť neustále čekají na data.
+Dosavadní standardy ISA, EISA, MCA již přestávaly vyhovovat a firma Intel přišla včas s novým řešením, které dovoluje 4-25x rychlejší přenos dat (PCI dnes umí 132 MB/sec, připravuje se dvojnásobek).
+Tato výkonná sběrnice propojuje procesor s pamětí a na ni se připojují zařízení pracující prakticky se všemi dnes používanými standardy.
+To dovoluje používat i zařízení pomalejší, pracující např. se sběrnicí ISA.
+Ta pak předává data sběrnici PCI a jejich interní přesuny pak probíhají bleskově.
+(-ios)

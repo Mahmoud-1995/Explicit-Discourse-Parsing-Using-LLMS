@@ -1,0 +1,45 @@
+Šedesátá léta - výpočetní střediska
+
+Z historie výpočetní techniky (2)
+Petr Koubský
+Počítače se tradičně klasifikují podle generací.
+V první generaci (zhruba do roku 1956) se jako stavební prvek používaly elektronky, které byly u druhé generace nahrazeny tranzistory.
+Geniální vynález integrovaného obvodu neboli čipu - miniaturní, velmi komplexní elektronické součástky - byl v konstrukci počítače poprvé využit firmou IBM, a to u počítačové řady System/360, uvedené na trh v dubnu 1964.
+IBM System/360 zahájila třetí generaci a tím novověk počítačové éry.
+
+V 60. letech byl i ten nejmodernější počítač velmi komplikovaným zařízením, které potřebovalo ke svému provozu buď samostatnou budovu, nebo alespoň několik vyhrazených prostor se speciálními nároky na čistotu, kabeláž, klimatizaci apod.
+O jeho chod se musel starat tým odborníků, většinou úzce specializovaných na konkrétní stroj.
+Náklady na pořízení se vyčíslovaly pěti- až šesticifernou sumou v dolarech;
+a to měl dolar podstatně vyšší hodnotu než dnes.
+Přesto poptávka neustále rostla, neboť při správné organizaci práce se investice do výpočetní techniky již tehdy byla schopna velmi rychle vrátit.
+Trhu dominovala IBM, k dalším výrazným výrobcům patřily společnosti CDC, RCA, o něco později Burroughs, Amdahl a Cray Research.
+IBM vyráběla od roku 1971 řadu System/370, od roku 1980 pak řadu 43;
+vesměs jde o modernizaci původní řady 360.
+
+Vysoké ceně a specifickým provozním nárokům počítačů odpovídala organizace práce kolem nich;
+jejím typickým výrazem je výpočetní středisko.
+Srdcem střediska je sál počítače - místnost, v níž se nachází vlastní stroj.
+Do sálu mají přístup jenom pracovníci spojení s bezprostřední obsluhou počítače.
+Ve středisku pracuje obvykle několik desítek lidí, specialistů na různé aspekty činnosti počítače: operátoři, technici počítače, technici periférií, systémoví a aplikační programátoři...
+Vlastní uživatelé počítače, kteří na něm chtějí řešit své konkrétní úlohy - například výpočet mezd, vědecké výpočty apod. - komunikují pouze s obsluhou stroje, a to přesně vymezeným způsobem.
+Samotný počítač většina uživatelů vůbec nikdy nespatří.
+
+Všimněte si, že jsem zničehonic přešel do mluvnického času přítomného.
+To má svůj důvod;
+výpočetní střediska klasického typu dosud existují a dlouho ještě existovat budou.
+Zatímco v 60. a 70. letech neexistovaly počítače mimo výpočetní střediska, dnes jsou tato střediska poměrně ojedinělá.
+U nás jsou často považována za přežitek socialismu, což je absolutní nesmysl.
+Pro některé druhy dat a způsoby jejich zpracování jsou střediskové počítače (angl. mainframe) - a celá organizace práce kolem nich - dosud tím nejvhodnějším známým prostředkem.
+
+V mnoha jiných případech tomu tak ovšem není.
+Kromě počítače ve středisku se trh dožadoval počítače pro jednoho člověka - levnějšího stroje, který by byl dost malý a dost jednoduchý, aby jej mohl obsluhovat jediný člověk a navíc nespecialista.
+Částečné řešení nabídly koncem 60. let společnosti DEC a Hewlett-Packard, které zavedly novou kategorii tzv. minipočítačů.
+K jejich obsluze skutečně stačil jediný člověk;
+jeho kvalifikace však nadále musela být poměrně značná, počítač byl stále tvořen několika rozměrnými plechovými skříněmi a jeho cena byla nejméně desetinásobkem ceny kvalitního osobního auta.
+Pro soukromou osobu nemyslitelná věc.
+Podstatným přínosem minipočítačů bylo ovšem to, že zavedly do všeobecného používání obrazovkový terminál, tedy obrazovku spojenou s klávesnicí.
+Hovořím hlavně o dění v USA, které byly a jsou centrem počítačového světa.
+U nás na Východě procházel vývoj v podstatě shodnými stadii, ovšem s několikaletým a stále rostoucím zpožděním.
+V 60. a 70. letech u nás vzniklo postupně několik výrobních závodů zaměřených na produkci systémů JSEP a SMEP.
+Šlo o počítačové řady, jejichž výroba jednotlivých členů - a často i jednotlivých součástí - byla rozdělena mezi země RVHP podle lokálních technologických možností.
+Konstrukčně šlo o repliky počítačů IBM 360, později 370 a 4341 (řada JSEP - mainframe) a počítačů HP 1000 (později i jiných strojů - řada SMEP, minipočítače).

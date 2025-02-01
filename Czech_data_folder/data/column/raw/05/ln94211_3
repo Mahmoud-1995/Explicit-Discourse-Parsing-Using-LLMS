@@ -1,0 +1,67 @@
+Důvěřuj, ale prověřuj!
+
+Ivan Straka
+Textový editor má dnes se svým předchůdcem, psacím strojem, jen velice málo společného.
+Je bohužel pravda, že řada uživatelů jej pouze jako psací stroj používá, ale je také pravda, že je jen otázkou času, kdy si uživatelé na širokou nabídku pomocných funkcí textového editoru zvyknou.
+
+V mnoha recenzích a článcích věnovaných textovým editorům se vždy pietně věnuje kapitolka problému jazykové kontroly textu.
+Je to funkce, která je dnes stále častěji nabízena, vyžadována- a kritizována.
+Pokusím se ukázat, že jednoznačné zavrhování jazykové kontroly textu není zcela na místě.
+
+Textový editor dnes nabízí ve srovnání s psacím strojem především více druhů, typů a velikostí písma.
+To taky bývá to první, co začátečníci s chutí využívají.
+Editory toho umějí ovšem mnohem více.
+Kromě typografických úprav textu, vkládání obrázků a diagramů do textu, vytváření obsahu nebo rejstříku atd. udržují neustále celý dokument včetně veškerých odkazů, poznámek a dalších vazeb v aktuálním tvaru.
+Například při vložení kapitoly do již hotového textu se nejen přečíslují stránky, ale také změní všechny existující vazby (obsah, rejstřík, odkazy typu viz ap.).
+Editory mají k dispozici řadu funkcí pro strukturování textu, členění na části, kapitoly, podkapitoly a odstavce, to vše doplněno četnými variantami formátování textu, tj. nastavení pravého a levého okraje, odsazování řádků, typ, druh a velikost písma atd.
+
+Pro všechny uživatele je k nezaplacení funkce hledání daného znakového řetězce, eventuálně s možností jeho náhrady.
+Lze tak snadno aktualizovat předrevoluční dopis či článek prostou náhradou soudruh za pan a KSČ za... (podle libosti).
+Zkušený uživatel textového editoru ví, že nic z toho, co napsal, nemusí přijít vniveč.
+Je skoro zbytečné psát si koncept (pokud máme víceméně jasno, co chceme stvořit), lépe je psát rovnou do počítače.
+Nehodí se věta, odstavec, kapitola na toto místo?
+Přesuneme ji snadno během okamžiku na místo lepší, když se momentálně nehodí, odložíme ji pro pozdější použití jinam.
+Už služby, o kterých se zmiňuji v tomto odstavci, patří- bohužel- k těm relativně méně využívaným.
+Pozoroval jsem jednou jednu slečnu: seděla u PC, měla prst zabořen do klávesnice a evidentně se nudila.
+Mazala totiž stránku tak, že držela klávesu Del a čekala, až domaže a dojede.
+Jiní přepisují již hotový odstavec jen proto, že měl být napsaný tučným písmem.
+
+Tento poněkud zdlouhavý úvod má za cíl vypíchnout tu vlastnost textových editorů, kterou jsem zmínil na začátku: jazyková kontrola textu.
+K nejčastějším kontrolním mechanismům patří spellchecker, název pro tu funkci textového editoru, která kontroluje správnost slov v textu se vyskytujících, a tezaurus, pomůcka pro obohacení výrazových prostředků, zpravidla nabízející synonyma k zadanému slovu.
+Popravdě řečeno, většinou jsou oba uvedené prostředky doplňovány a modifikovány tak, že ve výsledné podobě se někdy značně shodují.
+Spellchecker- řekněme kontrola pravopisu- porovnává jednotlivá slova v textu se speciálně vytvořeným slovníkem a jestliže slovo nenajde, upozorní na to.
+Pokud nabízí náhradu, vychází ze synonymické, tvaroslovné či zvukové podoby slov, z běžných překlepů vzniklých prohozením sousedících písmen, z rozložení kláves na klávesnici atd.
+Zpravidla odhalí chybu jako klucima, ale již ne bez klukovi.
+Tezaurus někdy nabízí nejen synonyma, ale i slova významem podobná, nadřazená, podřazená či protikladná.
+Pro jednoduchost budu dále jakýkoli modul textového editoru, který má zlepšit kvalitu textu, nazývat korektor.
+Kromě uvedených funkcí umějí korektory i hlídat vazby, předložkové pády, upozorní na opakovaný výskyt téhož slova, na stylistické neobratnosti, nadužívání některých slov či slovních spojení, nevhodné formulace (např. má lásko v obchodním dopise) atd.
+Ty poslední zatím převážně pouze pro angličtinu.
+
+Korektory pracují zpravidla ve dvou režimech: buď v interaktivním, kdy uživatel nesrovnalosti vyhodnotí a provede korekturu buďto sám, nebo s pomocí nápovědy.
+Pokud je slovo v pořádku, může je zařadit do tzv. uživatelského slovníku;
+korektor pak používá pro kontrolu jak originální slovník, tak i uživatelský.
+Do uživatelského slovníku se slovo musí pochopitelně uložit ve všech jeho podobách.
+Pokud korektor nabízí správný tvar, nabízí jich zpravidla více.
+Pořadí nabízených variant by mělo odpovídat věrohodnosti, s jakou se blíží jejich význam kontrolovanému slovu.
+Použijeme- li korektor v automatickém režimu, pak toto slovo použije jako náhradu.
+Pro rpotože by mohl nabídnout protože, vyjde- li z překlepu, nebo rohože, vyjde- li z formálně nejpodobnějšího slova.
+Zvolit optimální algoritmus není lehké.
+
+Velké vášně vyvolávají korektory pracující jako tezaury.
+Před časem bylo módou testovat tezaurus na slovo žena a vytýkat, že nezná žena jako přechodník od hnáti.
+Když se s tím ubozí tvůrci vyrovnali, tato generace šťouralů odrostla a dnes se setkáte s tím, že se recenzent veselí nad tím, že pro žena je v nabídce mj. hnát dobytek.
+Musíme si být vědomi toho, že zatímco účetnímu programu, tabulkovému kalkulátoru, statistickým programům atd. prostě věřit musíme, protože nemáme na to, aby si každý detail ověřovali, korekční programy v textových editorech bychom měli brát pouze jako jakousi, zdaleka ne perfektní, kontrolu.
+Ne vše, co najde, je špatně a naopak: ne vše, co projde, je dobře.
+
+Jistě by bylo ideální, kdyby nám korektor automaticky opravil větu Zbytečné používání zbitečných slova je zbytečná na Nadměrné používání nevýznamných slov je zbytečné.
+Až na opravu zbitečných od něj zatím nic čekat nemůžeme.
+Pokud jsme milovníky méně obvyklých slov, automatický režim nám nepomůže.
+Věta kdo chce psa být, vždycky si hůl najde projde také, protože být je gramaticky správný tvar.
+Existuje řada slov, která jsou správná, ale v počítačových slovnících je nenajdete.
+Patří k nim většina zkratek, jmen, názvů atd.
+
+To vše není samozřejmě důvodem k tomu, tyto pomůcky nepoužívat a nevyvíjet.
+Pracuje na nich řada odborníků všude ve světě a samozřejmě i u nás.
+Pro složitost jazyka jako vyjadřovacího prostředku člověka nelze ani do (reálného) budoucna počítat s tím, že bude k dispozici udělátko, které náš neuspořádaný, myšlenkově mdlý a koncepčně slabý písemný výtvor dostane do tvaru hodného Nobelovy ceny za literaturu.
+U jazyků s bohatým ohýbáním slov nebude dokonalá kontrola gramatické správnosti na úrovni slov.
+Pokud na tyto pomůcky budeme příliš spoléhat, měli bychom pamatovat na Gogolův výrok o zrcadle a křivé hubě.

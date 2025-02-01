@@ -1,0 +1,85 @@
+#!btred -TN --context PDiT_30 -e delete_discourse()
+#-*- cperl -*-
+# Author: Jiri Mirovsky
+
+#ifndef NTRED
+#include <tred.mac>
+#endif
+
+=item delete_discourse
+
+It deletes the original discourse annotation and changes the schema of the files to tdata_pdit30_schema.xml.
+
+=cut
+
+package PDiT_30;
+
+use strict;
+use warnings;
+
+#encoding utf8
+use utf8;
+binmode STDIN, ':utf8';
+binmode STDOUT, ':utf8';
+binmode STDERR, ':utf8';
+
+my $file_count;
+my $total_count = 0;
+
+sub file_opened_hook {
+  $file_count = 0;
+  my $document = CurrentFile();
+  $document->changeSchemaURL('tdata_pdit30_schema.xml');
+  print STDERR "The file schema changed to 'tdata_pdit30_schema.xml'.\n";
+  ChangingFile();
+} # file_opened_hook
+
+sub file_close_hook {
+  my $file_name = FileName();
+  print STDERR "Number of discourse info pieces deleted in $file_name: $file_count\n";
+} # file_close_hook
+
+sub exit_hook {
+  print STDERR "Total number of deleted discourse info pieces: $total_count\n";
+  print STDERR "\n";
+} # exit_hook
+
+
+sub delete_discourse {
+
+  my $node_id = $this->attr('id');
+  if (defined($node_id) and length($node_id)) {
+    # print STDERR "$node_id\n";
+    if (ListV($this->{'discourse'})) {
+      my $count = scalar(ListV($this->{'discourse'}));
+      $this->{'discourse'}=List();
+      print STDERR "Removed $count discourse arrows from node $node_id\n";
+      $file_count += $count;
+      $total_count += $count;
+      ChangingFile();
+    }
+    if ($this->attr('discourse_comment')) {
+      $this->set_attr('discourse_comment',undef);
+      print STDERR "Removed discourse_comment from node $node_id\n";
+      $file_count++;
+      $total_count++;
+      ChangingFile();
+    }
+    if ($this->attr('discourse_special')) {
+      $this->set_attr('discourse_special',undef);
+      print STDERR "Removed discourse_special from node $node_id\n";
+      $file_count++;
+      $total_count++;
+      ChangingFile();
+    }
+    if (ListV($this->{'discourse_groups'})) {
+      $this->{'discourse_groups'}=List();
+      print STDERR "Removed discourse group information from node $node_id\n";
+      $file_count++;
+      $total_count++;
+      ChangingFile();
+    }
+  }
+} # delete_discourse
+
+
