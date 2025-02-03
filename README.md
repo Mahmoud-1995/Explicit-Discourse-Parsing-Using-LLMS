@@ -7,13 +7,17 @@ Our methodology involves transforming the **Penn Discourse TreeBank (PDTB) datas
 ## Repository Structure
 - `Preprocessing_PDTB_into_Numbered_Tagging-Bracket_Annotation.ipynb`  
   - This notebook processes raw PDTB text files into **Numbered Tagging** and **Bracket Annotation** formats, making them suitable for fine-tuning the LLaMA models.
-  - Contains exploration of the PCC German discourse corpus and FTDB French discourse corpus. 
+  - Contains exploration of the PCC German discourse corpus, FTDB French discourse corpus, and Czech discourse corpus. 
 - `LLamafactory_evaluating_model_prediction.ipynb`  
   - This notebook evaluates the performance of the fine-tuned LlaMA model using the bracketing approach.
 - `Unllama_Model_Evaluation.ipynb`  
   - This notebook evaluates the **LS-unLLaMA** fine-tuned model using the numbered tagging approach.
-- `data/`  
-  - Directory containing the preprocessed datasets used for training and evaluation.
+- `Czech_data_folder/`
+  - Directory containing the Czech discourse raw files.
+- `German_connectives/`
+  - Directory containing the German discourse raw files.    
+- `french_corpus_validated/`
+  - Directory containing the french discourse raw files.    
 - `best_model_checkpoint/`  
   - Best checkpoint of the finetuned unLLaMA model.
 
@@ -44,7 +48,6 @@ This work leverages two repositories for fine-tuning LLaMA models:
 We compare both annotation approaches by fine-tuning **LLaMA models** on these datasets and evaluating their performance on **discourse connective identification** and **relation classification**. The evaluation notebooks analyze:
 - Precision, Recall, and F1-score for both approaches.
 - Error analysis of misclassified connectives.
-- Statistical significance tests comparing models.
 
 ## Citation
 If you use this code in your research, please consider citing:
