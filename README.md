@@ -7,18 +7,19 @@ Our methodology involves transforming the **Penn Discourse TreeBank (PDTB) datas
 ## Repository Structure
 - `Preprocessing_PDTB_into_Numbered_Tagging-Bracket_Annotation.ipynb`  
   - This notebook processes raw PDTB text files into **Numbered Tagging** and **Bracket Annotation** formats, making them suitable for fine-tuning the LLaMA models.
+  - Contains exploration of the PCC German discourse corpus and FTDB French discourse corpus. 
 - `LLamafactory_evaluating_model_prediction.ipynb`  
-  - This notebook evaluates the performance of the **LLaMA Factory** fine-tuned model on discourse parsing tasks.
+  - This notebook evaluates the performance of the fine-tuned LlaMA model using the bracketing approach.
 - `Unllama_Model_Evaluation.ipynb`  
-  - This notebook evaluates the **LS-unLLaMA** fine-tuned model for the same tasks.
+  - This notebook evaluates the **LS-unLLaMA** fine-tuned model using the numbered tagging approach.
 - `data/`  
   - Directory containing the preprocessed datasets used for training and evaluation.
-- `models/`  
-  - Fine-tuned models and checkpoints.
+- `best_model_checkpoint/`  
+  - Best checkpoint of the finetuned unLLaMA model.
 
 ## Fine-Tuning Methodologies
 This work leverages two repositories for fine-tuning LLaMA models:
-- **LS-LLaMA**: We fine-tuned the **LS-unLLaMA model**, which is designed for label supervision, allowing better performance in token classification tasks. Implementation details are based on the [LS-LLaMA repository](https://github.com/4AI/LS-LLaMA/tree/main).
+- **LS-LLaMA**: We fine-tuned the **LS-unLLaMA model**, designed for label supervision, allowing better performance in token classification tasks. Implementation details are based on the [LS-LLaMA repository](https://github.com/4AI/LS-LLaMA/tree/main).
 - **LLaMA Factory**: Another fine-tuning approach was carried out using the [LLaMA-Factory repository](https://github.com/hiyouga/LLaMA-Factory/tree/04c10d2e80b7f7e516eba67fea420498a1238bb5), which provides flexible instruction tuning for LLaMA models.
 
 ## Annotation Approaches
